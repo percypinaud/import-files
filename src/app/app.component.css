@@ -1,0 +1,26 @@
+div.dragover::before {
+    border: 5px dotted blue;
+    background-color: green;
+    opacity: 0.2;
+    display: -webkit-box;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 5px;
+    border-radius: 25px;
+  }
+  
+  div.dragover.forbidden::before {
+    border: 5px dotted blue;
+    background-color: red;
+  }
+  
+  div[asbDroppable] {
+    position:relative;
+    border: 1px solid black;
+    min-height: 200px;
+    width: 100%;
+  }

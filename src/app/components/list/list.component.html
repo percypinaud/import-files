@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr class="table-light">
+      <th>Nombre</th>
+      <th>Propietario</th>
+      <th>Fecha</th>
+      <th>Tamaño de Archivo</th>
+    </tr>
+  </thead>
+  <tbody cdkDropList (cdkDropListDropped)="onDropped($event)" >
+    <tr *ngFor="let file of files; index as i" cdkDrag>
+      <td><i class='far fa-file-image' style="margin-right: 10px;"></i>{{file.archivo}}</td>
+      <td>{{file.author}}</td>
+      <td>{{file.fec_crea |date:"short"}}</td>
+      <td>{{file.peso | filesize}}</td>
+    </tr>
+  </tbody>
+</table>
