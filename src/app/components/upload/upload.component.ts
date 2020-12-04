@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { UploadService } from 'src/app/services/upload.component.service';
 import { ListComponent } from '../list/list.component';
 
@@ -8,18 +9,19 @@ import { ListComponent } from '../list/list.component';
   styleUrls: ['./upload.component.css']
 })
 
-export class UploadComponent implements OnInit{
+export class UploadComponent implements AfterViewInit {
   
+  @ViewChild(ListComponent) lista!: ListComponent;
+
   files: File[] = [];
-  registrado : boolean = false;
 
-  constructor(private uploadService:UploadService ) {}
+  constructor(private uploadService:UploadService,private toastrService:ToastrService) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit () {
+    this.lista.listarDatos();
   }
 
   onSelect(event:any) {
-      console.log(event);
       this.files.push(...event.addedFiles);
       var formData = new FormData();
   
@@ -28,14 +30,17 @@ export class UploadComponent implements OnInit{
       }
       
       this.uploadService.saveFile(formData).subscribe(res => {
-        alert("Guardado exitosamente!");
-        this.registrado = true;
+        this.files = [];
+        this.showSuccess();
+        this.ngAfterViewInit();
       });
   }
 
   onRemove(event:any) {
-    console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
 
+  showSuccess(){
+    this.toastrService.success("Los archivos se guardaron","Registro Exitoso!");
+  }
 }

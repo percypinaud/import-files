@@ -5,13 +5,13 @@
       <div class="card">
         <div class="card-header bg-primary text-white">ARCHIVOS</div>
         <div class="card-body">
-          <ngx-dropzone (change)="onSelect($event)">
+          <ngx-dropzone (change)="onSelect($event)" class="mb-3">
             <ngx-dropzone-label>Arrastra, y suelta!</ngx-dropzone-label>
             <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              <ngx-dropzone-label class="container"><small>{{ f.name }} ({{ f.type }})</small></ngx-dropzone-label>
             </ngx-dropzone-preview>
-        </ngx-dropzone>
-        <app-list [registrado]="registrado"></app-list>
+          </ngx-dropzone>
+        <app-list></app-list>
         </div>
       </div>
     </div>

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "import-files"
+  "defaultProject": "import-files",
+  "cli": {
+    "analytics": false
+  }
 }

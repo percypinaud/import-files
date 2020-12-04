@@ -8,16 +8,13 @@ import { DataService } from 'src/app/services/data.component.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  @Input() registrado:any;
 
   public files : any = [];
 
   constructor(private dataService:DataService) { 
-    console.log(this.registrado);
   }
  
   ngOnInit(): void {
-    this.listarDatos();
   }
 
   onDropped(event:CdkDragDrop<any>) {

@@ -10,7 +10,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { UploadService } from './services/upload.component.service';
-import {NgxFilesizeModule} from 'ngx-filesize';
+import { NgxFilesizeModule} from 'ngx-filesize';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {NgxFilesizeModule} from 'ngx-filesize';
     DragDropModule,
     ScrollingModule,
     NgxDropzoneModule,
-    NgxFilesizeModule
+    NgxFilesizeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [DataService,UploadService],
   bootstrap: [AppComponent]
